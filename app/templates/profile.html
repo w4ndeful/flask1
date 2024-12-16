@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Welcome, {{ current_user.username }}</h1>
+    <h3>Your Resumes</h3>
+    <ul class="list-group">
+        {% for resume in current_user.resumes %}
+            <li class="list-group-item">
+                <strong>{{ resume.title }}</strong><br>
+                {{ resume.description }}
+            </li>
+        {% else %}
+            <li class="list-group-item">You don't have any resumes yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

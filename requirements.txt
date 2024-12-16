@@ -1,0 +1,9 @@
+flask~=3.1.0
+flask-sqlalchemy
+flask-migrate~=4.0.7
+flask-wtf
+flask-login~=0.6.3
+flask-bootstrap
+WTForms~=3.2.1
+alembic~=1.14.0
+SQLAlchemy~=2.0.36

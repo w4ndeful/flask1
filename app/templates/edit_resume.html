@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Resume{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Edit Resume</h1>
+    <form method="POST" action="{{ url_for('main.edit_resume', resume_id=resume.id) }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.title.label(class="form-label") }}
+            {{ form.title(class="form-control", value=resume.title) }}  <!-- Use resume.title here -->
+        </div>
+        <div class="form-group">
+            {{ form.description.label(class="form-label") }}
+            {{ form.description(class="form-control", value=resume.description) }}  <!-- Use resume.description here -->
+        </div>
+        <div class="form-group text-center">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+    <p class="text-center">
+        <a href="{{ url_for('main.index') }}">Cancel</a>
+    </p>
+{% endblock %}

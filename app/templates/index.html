@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Resumes</h1>
+<a href="{{ url_for('main.create_resume') }}" class="btn btn-primary mb-3">Create New Resume</a>
+<div class="list-group">
+    {% for resume in resumes %}
+        <div class="list-group-item">
+            <h4>{{ resume.title }}</h4>
+            <p>{{ resume.description }}</p>
+            <a href="{{ url_for('main.edit_resume', resume_id=resume.id) }}" class="btn btn-warning btn-sm">Edit</a>
+            <form method="POST" action="{{ url_for('main.delete_resume', resume_id=resume.id) }}" class="d-inline">
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
